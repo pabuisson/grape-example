@@ -17,3 +17,8 @@ group :development do
   gem 'spring'
 end
 
+
+# API
+
+gem 'grape'
+gem 'grape-entity'
