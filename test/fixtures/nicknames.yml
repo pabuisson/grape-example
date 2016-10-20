@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: nicknames
+#
+#  id         :binary           not null, primary key
+#  nickname   :string
+#  author_id  :binary
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  sqlite_autoindex_nicknames_1  (id) UNIQUE
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nickname: MyString
+
+two:
+  nickname: MyString
