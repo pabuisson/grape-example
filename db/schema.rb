@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020170019) do
+ActiveRecord::Schema.define(version: 20161020173301) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.string   "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_archived", default: false
   end
 
   add_index "albums", ["id"], name: "sqlite_autoindex_albums_1", unique: true
@@ -35,8 +36,9 @@ ActiveRecord::Schema.define(version: 20161020170019) do
   create_table "nicknames", force: :cascade do |t|
     t.string   "nickname"
     t.binary   "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_archived", default: false
   end
 
   add_index "nicknames", ["id"], name: "sqlite_autoindex_nicknames_1", unique: true
@@ -44,8 +46,9 @@ ActiveRecord::Schema.define(version: 20161020170019) do
   create_table "singers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_archived", default: false
   end
 
   add_index "singers", ["id"], name: "sqlite_autoindex_singers_1", unique: true
@@ -57,8 +60,9 @@ ActiveRecord::Schema.define(version: 20161020170019) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_archived", default: false
   end
 
   add_index "songs", ["id"], name: "sqlite_autoindex_songs_1", unique: true
