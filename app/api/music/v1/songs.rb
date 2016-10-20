@@ -5,7 +5,6 @@ module Music
       format :json
       formatter :json, Grape::Formatter::ActiveModelSerializers
 
-
       resources :songs do
         desc 'Returns list of songs'
         get do
@@ -22,6 +21,36 @@ module Music
           end
         end
 
+        desc 'Create a new song'
+        params do
+          requires :song, type: Hash do
+            requires :name, type: String, desc: "Song title"
+          end
+        end
+        post do
+          Song.create!( params[:song] )
+        end
+
+        desc 'Update an existing song'
+        params do
+          requires :id, type: String, desc: "Song uuid"
+          requires :song, type: Hash, desc: "The updated parts of the song"
+        end
+        patch ':id' do
+          song = Song.find( params[:id ])
+          song.update( params[:song] )
+          song
+        end
+
+        desc 'Delete an existing song'
+        params do
+          requires :id, type: String, desc: "Song uuid"
+        end
+        delete ':id' do
+          song = Song.find( params[:id] )
+          song.update( is_archived: true )
+          body false
+        end
       end
     end
   end

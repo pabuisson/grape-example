@@ -1,3 +1,8 @@
 class SongSerializer < ActiveModel::Serializer
-  attributes :name
+  attribute :id_s, key: :id
+  attribute :name
+
+  def id_s
+    object.id.to_s
+  end
 end
