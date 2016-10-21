@@ -8,7 +8,7 @@ module Music
       resources :songs do
         desc 'Returns list of songs'
         get do
-          Song.all
+          present Song.all
         end
 
         desc 'Returns a particular song'
@@ -17,7 +17,7 @@ module Music
         end
         route_param :id do
           get do
-            Song.find( params[:id] )
+            present Song.find( params[:id] )
           end
         end
 
@@ -28,7 +28,8 @@ module Music
           end
         end
         post do
-          Song.create!( params[:song] )
+          song = Song.create!( params[:song] )
+          present song
         end
 
         desc 'Update an existing song'
@@ -39,7 +40,7 @@ module Music
         patch ':id' do
           song = Song.find( params[:id ])
           song.update( params[:song] )
-          song
+          present song
         end
 
         desc 'Delete an existing song'

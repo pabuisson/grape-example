@@ -22,6 +22,37 @@ module Music
           end
         end
 
+        desc 'Create a new album'
+        params do
+          requires :album, type: Hash do
+            requires :name, type: String, desc: "Album title"
+          end
+        end
+        post do
+          album = Album.create!( params[:album] )
+          present album
+        end
+
+        desc 'Update an existing album'
+        params do
+          requires :id, type: String, desc: "Album uuid"
+          requires :album, type: Hash, desc: "The updated parts of the album"
+        end
+        patch ':id' do
+          album = Album.find( params[:id ])
+          album.update( params[:album] )
+          present album
+        end
+
+        desc 'Delete an existing album'
+        params do
+          requires :id, type: String, desc: "Album uuid"
+        end
+        delete ':id' do
+          album = Album.find( params[:id] )
+          album.update( is_archived: true )
+          body false
+        end
       end
     end
   end
