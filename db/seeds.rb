@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+unless AuthKey.any?
+  new_auth_key = AuthKey.generate
+  new_auth_key.save!
+end

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+
+two:
+  key: MyString
+
+# == Schema Information
+#
+# Table name: auth_keys
+#
+#  key        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
