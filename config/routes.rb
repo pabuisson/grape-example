@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  mount Music::Base => '/'
+  constraints subdomain: 'api' do
+    mount Music::Base => '/'
+  end
 end
