@@ -3,13 +3,11 @@ module Music
     class Singers < Grape::API
       version 'v1', using: :path
       format :json
-      formatter :json, Grape::Formatter::ActiveModelSerializers
-
 
       resources :singers do
         desc 'Returns list of singers'
         get do
-          Singer.all
+          present Singer.all
         end
 
         desc 'Returns a particular singer'
@@ -25,7 +23,9 @@ module Music
         desc 'Create a new singer'
         params do
           requires :singer, type: Hash do
-            requires :name, type: String, desc: "Singer title"
+            requires :first_name, type: String, desc: "Singer first name"
+            requires :last_name, type: String, desc: "Singer last name"
+            optional :nicknames, type: Array[String]
           end
         end
         post do

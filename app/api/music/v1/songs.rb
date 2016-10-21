@@ -3,8 +3,6 @@ module Music
     class Songs < Grape::API
       version 'v1', using: :path
       format :json
-      formatter :json, Grape::Formatter::ActiveModelSerializers
-
 
       resources :songs do
         desc 'Returns list of songs'

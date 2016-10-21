@@ -3,8 +3,6 @@ module Music
     class Albums < Grape::API
       version 'v1', using: :path
       format :json
-      formatter :json, Grape::Formatter::ActiveModelSerializers
-
 
       resources :albums do
         desc 'Returns list of albums'
@@ -26,6 +24,7 @@ module Music
         params do
           requires :album, type: Hash do
             requires :name, type: String, desc: "Album title"
+            optional :year, type: String, desc: "Year when album was first released"
           end
         end
         post do

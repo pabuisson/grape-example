@@ -5,6 +5,16 @@ class Album < ActiveRecord::Base
 
   has_and_belongs_to_many :singers
   has_and_belongs_to_many :songs
+
+
+  def entity
+    Entity.new(self)
+  end
+
+  class Entity < Grape::Entity
+    expose :name
+    expose :year
+  end
 end
 
 # == Schema Information
