@@ -12,7 +12,7 @@ end
 #
 #  id          :binary           not null, primary key
 #  nickname    :string
-#  author_id   :binary
+#  singer_id   :binary
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  is_archived :boolean          default("f")

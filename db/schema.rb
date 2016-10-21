@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161021094220) do
 
   create_table "nicknames", force: :cascade do |t|
     t.string   "nickname"
-    t.binary   "author_id"
+    t.binary   "singer_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "is_archived", default: false
