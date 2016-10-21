@@ -15,7 +15,8 @@ class Singer < ActiveRecord::Base
   class Entity < Grape::Entity
     expose :first_name
     expose :last_name
-    expose :nicknames
+    # NOTE: Does not work if I remove the "using" part?
+    expose :nicknames, using: Nickname::Entity
   end
 end
 

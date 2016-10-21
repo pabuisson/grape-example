@@ -4,6 +4,16 @@ class Nickname < ActiveRecord::Base
   natural_key :created_at
 
   belongs_to :singer
+
+
+  def entity
+    Entity.new( self )
+  end
+
+  class Entity < Grape::Entity
+    expose :id
+    expose :nickname
+  end
 end
 
 # == Schema Information
