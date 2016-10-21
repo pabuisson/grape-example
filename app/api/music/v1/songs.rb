@@ -5,10 +5,11 @@ module Music
       format :json
       formatter :json, Grape::Formatter::ActiveModelSerializers
 
+
       resources :songs do
         desc 'Returns list of songs'
         get do
-          present Song.all
+          present Song.current
         end
 
         desc 'Returns a particular song'
@@ -17,7 +18,7 @@ module Music
         end
         route_param :id do
           get do
-            present Song.find( params[:id] )
+            present Song.current.find( params[:id] )
           end
         end
 
@@ -52,6 +53,7 @@ module Music
           song.update( is_archived: true )
           body false
         end
+
       end
     end
   end
