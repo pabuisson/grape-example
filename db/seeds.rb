@@ -8,6 +8,5 @@
 
 
 unless AuthKey.any?
-  new_auth_key = AuthKey.generate
-  new_auth_key.save!
+  AuthKey.create!( key: '565d34efaf32' )
 end

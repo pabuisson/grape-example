@@ -1,8 +1,15 @@
 module Music
   class Base < Grape::API
+    # Accepts XML and JSON content types, and defaults to JSON for anything else
+    content_type :xml, 'application/xml'
+    content_type :json, 'application/json'
+    default_format :json
+    default_error_formatter :json
+
     before do
       error!( 'Unauthorized. Invalid or expired token.', 401 ) unless authenticated?
     end
+
 
     helpers do
       def authenticated?
@@ -15,5 +22,9 @@ module Music
     mount Music::V1::Songs
     mount Music::V1::Singers
     mount Music::V1::Albums
+
+    # route :any, '*path' do
+    #   error! :not_found, 404
+    # end
   end
 end
