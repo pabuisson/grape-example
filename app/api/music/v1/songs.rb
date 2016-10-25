@@ -27,7 +27,7 @@ module Music
           end
         end
         post do
-          song = Song.create!( params[:song] )
+          song = Song.create( params[:song] )
           present song
         end
 

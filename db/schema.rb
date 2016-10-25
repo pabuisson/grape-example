@@ -16,22 +16,12 @@ ActiveRecord::Schema.define(version: 20161021094220) do
   create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.string   "year"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "is_archived", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "albums", ["id"], name: "index_albums_on_id"
   add_index "albums", ["id"], name: "sqlite_autoindex_albums_1", unique: true
-
-  create_table "albums_singers", id: false, force: :cascade do |t|
-    t.binary "singer_id", null: false
-    t.binary "album_id",  null: false
-  end
-
-  create_table "albums_songs", id: false, force: :cascade do |t|
-    t.binary "album_id", null: false
-    t.binary "song_id",  null: false
-  end
 
   create_table "auth_keys", id: false, force: :cascade do |t|
     t.string   "key"

@@ -29,7 +29,7 @@ module Music
           end
         end
         post do
-          singer = Singer.create!( params[:singer] )
+          singer = Singer.create( params[:singer] )
           present singer
         end
 
