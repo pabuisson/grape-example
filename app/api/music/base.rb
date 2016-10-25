@@ -5,6 +5,8 @@ module Music
     content_type :json, 'application/json'
     default_format :json
     default_error_formatter :json
+    # Rescue all exceptions and return them in the API format
+    rescue_from :all
 
     before do
       error!( 'Unauthorized. Invalid or expired token.', 401 ) unless authenticated?

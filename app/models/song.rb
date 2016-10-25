@@ -7,14 +7,15 @@ class Song < ActiveRecord::Base
 
 
   def entity
-    Entity.new(self)
+    Entity.new( self )
   end
 
   class Entity < Grape::Entity
-    expose :id
+    expose :id, proc: Proc.new { |song, options| song.id.to_s }
     expose :name
   end
 end
+
 
 # == Schema Information
 #

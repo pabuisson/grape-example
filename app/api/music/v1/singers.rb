@@ -6,8 +6,9 @@ module Music
 
       resources :singers do
         desc 'Returns list of singers'
+        paginate
         get do
-          present Singer.all
+          present paginate( Singer.current )
         end
 
         desc 'Returns a particular singer'
@@ -16,7 +17,7 @@ module Music
         end
         route_param :id do
           get do
-            Singer.find( params[:id] )
+            present Singer.current.find( params[:id] )
           end
         end
 

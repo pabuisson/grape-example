@@ -6,8 +6,9 @@ module Music
 
       resources :songs do
         desc 'Returns list of songs'
+        paginate
         get do
-          present Song.current
+          present paginate( Song.current )
         end
 
         desc 'Returns a particular song'

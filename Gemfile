@@ -17,17 +17,16 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
 
 
 # API
-
 gem 'grape'
 gem 'grape-entity'
-# gem 'grape-active_model_serializers'
+gem 'will_paginate'
+gem 'api-pagination'
 gem 'hashie-forbidden_attributes'
-# Documentation
+# API Documentation
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'rack-cors'

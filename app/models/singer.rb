@@ -9,11 +9,11 @@ class Singer < ActiveRecord::Base
 
 
   def entity
-    Entity.new(self)
+    Entity.new( self )
   end
 
   class Entity < Grape::Entity
-    expose :id
+    expose :id, proc: Proc.new { |singer, options| singer.id.to_s }
     expose :first_name
     expose :last_name
     # NOTE: Does not work if I remove the "using" part?
