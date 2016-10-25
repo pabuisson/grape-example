@@ -11,7 +11,7 @@ class Song < ActiveRecord::Base
   end
 
   class Entity < Grape::Entity
-    expose :id, proc: Proc.new { |song, options| song.id.to_s }
+    expose :id, proc: Proc.new { |song, options| UUIDTools::UUID.serialize( song.id ) }
     expose :name
   end
 end

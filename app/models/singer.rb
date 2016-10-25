@@ -13,7 +13,7 @@ class Singer < ActiveRecord::Base
   end
 
   class Entity < Grape::Entity
-    expose :id, proc: Proc.new { |singer, options| singer.id.to_s }
+    expose :id, proc: Proc.new { |singer, options| UUIDTools::UUID.serialize( singer.id ) }
     expose :first_name
     expose :last_name
     # NOTE: Does not work if I remove the "using" part?
