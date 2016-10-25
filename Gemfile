@@ -27,3 +27,6 @@ gem 'grape'
 gem 'grape-entity'
 # gem 'grape-active_model_serializers'
 gem 'hashie-forbidden_attributes'
+# Documentation
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
