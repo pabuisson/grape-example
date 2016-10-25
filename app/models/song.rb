@@ -4,7 +4,6 @@ class Song < ActiveRecord::Base
   natural_key :created_at
 
   has_and_belongs_to_many :singers
-  has_and_belongs_to_many :albums
 
 
   def entity
