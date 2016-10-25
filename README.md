@@ -17,7 +17,7 @@ A quick project to test several aspect of the ruby gem grape and several gems am
     rake db:seed
     rails server
 
-The database is now ready, the server is running, we just need to launch some requests:
+You can then access the documentation at [developers.lvh.me:3000](http://developers.lvh.me:3000).
+This documentation is auto-generated from the API itself and you can use it to send requests to test
+the API (request will also show you how to launch the request using `curl`).
 
-    curl -X POST -H "X-Api-Key: 565d34efaf32" -H "Content-type: application/json" -d '{"singer": {"first_name":"John", "last_name":"Lennon"}}' http://api.lvh.me:3000/v1/singers
-    curl -H "X-Api-Key: 565d34efaf32" -H "Content-type: application/json" http://api.lvh.me:3000/v1/singers

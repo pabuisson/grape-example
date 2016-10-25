@@ -34,7 +34,6 @@ module Music
         title: "Music API",
         description: 'API to test Grape and swagger and all those gems on a tiny project',
         contact: "pierreadrien@altagem.com",
-        license: "You're kidding, right?"
       }
     )
   end

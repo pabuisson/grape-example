@@ -11,6 +11,7 @@ class Song < ActiveRecord::Base
   end
 
   class Entity < Grape::Entity
+    expose :id
     expose :name
   end
 end

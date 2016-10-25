@@ -30,3 +30,4 @@ gem 'hashie-forbidden_attributes'
 # Documentation
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
+gem 'rack-cors'

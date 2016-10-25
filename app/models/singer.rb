@@ -13,6 +13,7 @@ class Singer < ActiveRecord::Base
   end
 
   class Entity < Grape::Entity
+    expose :id
     expose :first_name
     expose :last_name
     # NOTE: Does not work if I remove the "using" part?
